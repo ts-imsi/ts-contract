@@ -25,7 +25,7 @@ import java.util.Map;
  * @date 2017/9/21
  */
 @RestController
-@RequestMapping(value="/contract")
+@RequestMapping(value="/ts-contract/contract")
 public class ContractController {
     private final static Logger logger = LoggerFactory.getLogger(ContractController.class);
 
@@ -58,6 +58,7 @@ public class ContractController {
         param.put("totalCount",contractInfoPageInfo.getTotal());
         param.put("pageSize",contractInfoPageInfo.getPageSize());
         param.put("list",contractInfoPageInfo.getList());
+        param.put("success",true);
         return param;
 
     }

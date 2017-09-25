@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.transen.tscontract.dao.OaContractInfoMapper">
+
+  <select id="getOaContractList" parameterType="com.transen.tscontract.model.OaContractInfo" resultType="com.transen.tscontract.model.OaContractInfo">
+    select info.ID,
+    info.contract_no as contractNo,
+    info.contract_type as contractType,
+    info.contract_name as contractName,
+    info.contract_price as contractPrice,
+    info.product_type as productType,
+    info.buy_price as buyPrice,
+    info.sign_date as signDate,
+    info.contract_owner as contractOwner,
+    info.buyer as buyer,
+    info.seller as seller,
+    info.buyer_signer as buyerSigner,
+    info.seller_signer as sellerSigner,
+    info.customer_id as customerId,
+    info.create_time as createTime,
+    info.time_limit as timeLimit,
+    info.state as state,
+    info.paymode as paymode,
+    info.remark as remark,
+    info.create_type as createType,
+    info.create_user_id as createUserId,
+    info.distribute_date as distributeDate,
+    info.maintain_limit as maintainLimit,
+    cu.CUSTOMER_NAME as customerName,
+    cu.customer_no as customerNo,
+    cu.hospital_grade as hospitalGrade,
+    cu.contact_address as contactAddress
+    from OA_CONTRACT_INFO info
+    left join OA_CUSTOMER cu
+    on info.customer_id = cu.id
+    where 1 = 1
+    <if test="contractNo!=null"> and info.CONTRACT_NO=#{contractNo,jdbcType=VARCHAR}</if>
+    <if test="contractOwner!=null"> and info.CONTRACT_OWNER=#{contractOwner,jdbcType=VARCHAR}</if>
+  </select>
+
+  <select id="getProductByContract" parameterType="String" resultType="com.transen.tscontract.model.ContractProduct">
+    select con.contract_no as contractNo,
+       con.contract_type as contractType,
+       con.contract_name as contractName,
+       con.contract_owner as contractOwner,
+       pro.id as ProductId,
+       pro.product_name as productName,
+       pro.product_no as productNo,
+       pro.type as type,
+       dic.name dicName,
+       pro.create_date as createDate,
+       pro.version_code as versionCode,
+       pro.latest as latest,
+       im.id as deptId,
+       im.name as name,
+       im.imisid as imisid,
+       im.imisname as imisname
+  from oa_contract_info con, OA_CONTRACT_PRODUCT con_pro,JF_DICTIONARY dic,oa_product pro left join dept_to_imis im on im.id=pro.dept_id
+ where con.id = con_pro.contract_id
+   and con_pro.product_id = pro.id
+   and dic.id=pro.type
+   and con.contract_no = #{contractNo}
+  </select>
+
+  <select id="getProductList"  resultType="com.transen.tscontract.model.OaProduct">
+    select
+    pro.id as ProductId,
+    pro.product_name as productName,
+    pro.product_no as productNo,
+    pro.type as type,
+    pro.create_date as createDate,
+    pro.version_code as versionCode,
+    pro.latest as latest,
+    im.id as deptId,
+    im.name as name,
+    im.imisid as imisid,
+    im.imisname as imisname
+    from  oa_product pro left join dept_to_imis im on im.id=pro.dept_id
+  </select>
+  
+  <select id="getProductTypeDic" resultType="com.transen.tscontract.model.OaDic">
+      select id,name,code from JF_DICTIONARY t where parent_id=1 and delete_bit=0
+  </select>
+  
+</mapper>

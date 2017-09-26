@@ -1,4 +1,4 @@
-package com.transen.tscontract.common;
+package com.trasen.tscontract.common;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

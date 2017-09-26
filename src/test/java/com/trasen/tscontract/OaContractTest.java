@@ -1,12 +1,11 @@
 package com.trasen.tscontract;
 
 import com.github.pagehelper.PageInfo;
-import com.transen.tscontract.Application;
-import com.transen.tscontract.model.ContractProduct;
-import com.transen.tscontract.model.OaContractInfo;
-import com.transen.tscontract.model.OaDic;
-import com.transen.tscontract.model.OaProduct;
-import com.transen.tscontract.service.ContractService;
+import com.trasen.tscontract.model.ContractProduct;
+import com.trasen.tscontract.model.OaContractInfo;
+import com.trasen.tscontract.model.OaDic;
+import com.trasen.tscontract.model.OaProduct;
+import com.trasen.tscontract.service.ContractService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.transen.tscontract.model;
+package com.trasen.tscontract.model;
 
 /**
  * @author luoyun

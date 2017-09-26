@@ -1,4 +1,4 @@
-package com.transen.tscontract.util;
+package com.trasen.tscontract.util;
 
 
 import tk.mybatis.mapper.common.Mapper;

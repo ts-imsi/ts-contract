@@ -1,4 +1,4 @@
-package com.transen.tscontract;
+package com.trasen.tscontract;
 
 /**
  * @author luoyun
@@ -7,7 +7,7 @@ package com.transen.tscontract;
  * @date 2017/9/21
  */
 
-import com.transen.tscontract.common.CheckLoginFilter;
+import com.trasen.tscontract.common.CheckLoginFilter;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +26,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @EnableTransactionManagement
 @SpringBootApplication
-@MapperScan(basePackages = "com.transen.tscontract.dao")
+@MapperScan(basePackages = "com.trasen.tscontract.dao")
 public class Application implements CommandLineRunner {
 
     private Logger logger = LoggerFactory.getLogger(Application.class);

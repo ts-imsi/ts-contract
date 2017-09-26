@@ -1,4 +1,4 @@
-package com.transen.tscontract.model;
+package com.trasen.tscontract.model;
 
 import java.util.Date;
 
@@ -8,11 +8,17 @@ import java.util.Date;
  * @Description: 操作类型
  * @date 2017/9/22
  */
-public class OaProduct {
+public class ContractProduct {
+
+    private String contractNo;
+    private String contractType;
+    private String contractName;
+    private String contractOwner;
     private Integer ProductId;
     private String productName;
     private String productNo;
     private String type;
+    private String dicName;
     private Date createDate;
     private Integer versionCode;
     private Integer latest;
@@ -20,6 +26,38 @@ public class OaProduct {
     private String name;
     private String imisid;
     private String imisname;
+
+    public String getContractNo() {
+        return contractNo;
+    }
+
+    public void setContractNo(String contractNo) {
+        this.contractNo = contractNo;
+    }
+
+    public String getContractType() {
+        return contractType;
+    }
+
+    public void setContractType(String contractType) {
+        this.contractType = contractType;
+    }
+
+    public String getContractName() {
+        return contractName;
+    }
+
+    public void setContractName(String contractName) {
+        this.contractName = contractName;
+    }
+
+    public String getContractOwner() {
+        return contractOwner;
+    }
+
+    public void setContractOwner(String contractOwner) {
+        this.contractOwner = contractOwner;
+    }
 
     public Integer getProductId() {
         return ProductId;
@@ -51,6 +89,14 @@ public class OaProduct {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getDicName() {
+        return dicName;
+    }
+
+    public void setDicName(String dicName) {
+        this.dicName = dicName;
     }
 
     public Date getCreateDate() {

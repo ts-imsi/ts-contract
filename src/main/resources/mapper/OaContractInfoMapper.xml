@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.transen.tscontract.dao.OaContractInfoMapper">
+<mapper namespace="com.trasen.tscontract.dao.OaContractInfoMapper">
 
-  <select id="getOaContractList" parameterType="com.transen.tscontract.model.OaContractInfo" resultType="com.transen.tscontract.model.OaContractInfo">
+  <select id="getOaContractList" parameterType="com.trasen.tscontract.model.OaContractInfo" resultType="com.trasen.tscontract.model.OaContractInfo">
     select info.ID,
     info.contract_no as contractNo,
     info.contract_type as contractType,
@@ -38,7 +38,7 @@
     <if test="contractOwner!=null"> and info.CONTRACT_OWNER=#{contractOwner,jdbcType=VARCHAR}</if>
   </select>
 
-  <select id="getProductByContract" parameterType="String" resultType="com.transen.tscontract.model.ContractProduct">
+  <select id="getProductByContract" parameterType="String" resultType="com.trasen.tscontract.model.ContractProduct">
     select con.contract_no as contractNo,
        con.contract_type as contractType,
        con.contract_name as contractName,
@@ -62,7 +62,7 @@
    and con.contract_no = #{contractNo}
   </select>
 
-  <select id="getProductList"  resultType="com.transen.tscontract.model.OaProduct">
+  <select id="getProductList"  resultType="com.trasen.tscontract.model.OaProduct">
     select
     pro.id as ProductId,
     pro.product_name as productName,
@@ -78,7 +78,7 @@
     from  oa_product pro left join dept_to_imis im on im.id=pro.dept_id
   </select>
   
-  <select id="getProductTypeDic" resultType="com.transen.tscontract.model.OaDic">
+  <select id="getProductTypeDic" resultType="com.trasen.tscontract.model.OaDic">
       select id,name,code from JF_DICTIONARY t where parent_id=1 and delete_bit=0
   </select>
   

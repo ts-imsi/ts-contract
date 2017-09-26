@@ -44,8 +44,10 @@ public class ContractController {
             return param;
         }
         OaContractInfo oaContractInfo=new OaContractInfo();
-        if(params.get("contractNo")!=null){
-            oaContractInfo.setContractNo(params.get("contractNo"));
+        if(params.get("selectName")!=null&&params.get("selectName")!=""){
+            oaContractInfo.setContractNo(params.get("selectName"));
+            oaContractInfo.setContractName(params.get("selectName"));
+            oaContractInfo.setCustomerName(params.get("selectName"));
         }
         if(params.get("contractOwner")!=null){
             oaContractInfo.setContractOwner(params.get("contractOwner"));

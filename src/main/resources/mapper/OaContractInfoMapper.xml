@@ -29,7 +29,8 @@
     cu.CUSTOMER_NAME as customerName,
     cu.customer_no as customerNo,
     cu.hospital_grade as hospitalGrade,
-    cu.contact_address as contactAddress
+    cu.contact_address as contactAddress,
+    cu.CONTACT_PHONE as contactPhone
     from OA_CONTRACT_INFO info
     left join OA_CUSTOMER cu
     on info.customer_id = cu.id

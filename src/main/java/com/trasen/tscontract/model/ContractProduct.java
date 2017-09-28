@@ -14,7 +14,7 @@ public class ContractProduct {
     private String contractType;
     private String contractName;
     private String contractOwner;
-    private Integer ProductId;
+    private Integer productId;
     private String productName;
     private String productNo;
     private String type;
@@ -60,11 +60,11 @@ public class ContractProduct {
     }
 
     public Integer getProductId() {
-        return ProductId;
+        return productId;
     }
 
     public void setProductId(Integer productId) {
-        ProductId = productId;
+        productId = productId;
     }
 
     public String getProductName() {

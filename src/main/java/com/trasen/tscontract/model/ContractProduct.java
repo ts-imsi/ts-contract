@@ -64,7 +64,7 @@ public class ContractProduct {
     }
 
     public void setProductId(Integer productId) {
-        productId = productId;
+        this.productId = productId;
     }
 
     public String getProductName() {

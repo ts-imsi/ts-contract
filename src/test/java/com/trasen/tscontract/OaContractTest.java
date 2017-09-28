@@ -46,7 +46,7 @@ public class OaContractTest {
     @Test
     public void getProductByContract(){
 
-        List<ContractProduct> contractProductList= contractService.getProductByContract("B14011");
+        List<ContractProduct> contractProductList= contractService.getProductByContract("B16080");
         if(contractProductList!=null){
             System.out.println(contractProductList.get(0).getContractName()+"====="+contractProductList.get(0).getDicName());
         }

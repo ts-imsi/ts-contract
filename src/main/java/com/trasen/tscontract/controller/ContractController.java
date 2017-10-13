@@ -65,6 +65,31 @@ public class ContractController {
 
     }
 
+    @RequestMapping(value="/getOaContractListByOwner",method = RequestMethod.POST)
+    public Map<String,Object> getOaContractListByOwner(@RequestBody Map<String,String> params){
+        Map<String,Object> param=new HashMap<String,Object>();
+        OaContractInfo oaContractInfo=new OaContractInfo();
+        try {
+            if (params.get("contractOwner") != null) {
+                oaContractInfo.setContractOwner(params.get("contractOwner"));
+            } else {
+                param.put("messges", "参数错误，合同所有者为空");
+                param.put("success", false);
+                return param;
+            }
+            List<OaContractInfo> oaContractInfoList = contractService.getOaContractListByOwner(oaContractInfo);
+            param.put("list", oaContractInfoList);
+            param.put("success", true);
+            return param;
+        }catch (Exception e){
+            logger.error("获取合同数据异常" + e.getMessage(), e);
+            param.put("message","数据查询失败");
+            param.put("success", false);
+            return param;
+        }
+    }
+
+
     /*
     * 合同对应的产品
     * */

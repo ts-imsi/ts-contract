@@ -36,6 +36,12 @@ public class ContractService {
 
     }
 
+    public List<OaContractInfo> getOaContractListByOwner(OaContractInfo oaContractInfo){
+        List<OaContractInfo> oaContractInfoList=oaContractInfoMapper.getOaContractList(oaContractInfo);
+        return oaContractInfoList;
+    }
+
+
     public List<OaProduct> getProductList(){
         return oaContractInfoMapper.getProductList();
     }

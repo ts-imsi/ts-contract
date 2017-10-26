@@ -63,7 +63,7 @@ public class ContractController {
 
     }
 
-    @RequestMapping(value="/getContractByHtNo",method = RequestMethod.POST)
+    @RequestMapping(value="/getContractByHtNo/{contractNo}",method = RequestMethod.POST)
     public Map<String,Object> getContractByHtNo(@PathVariable String contractNo){
         Map<String,Object> param=new HashMap<>();
         try{

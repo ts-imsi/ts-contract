@@ -50,4 +50,8 @@ public class ContractService {
         return oaContractInfoMapper.getProductTypeDic();
     }
 
+    public OaContractInfo getContractByHtNo(String contractNo){
+        return oaContractInfoMapper.getContractByHtNo(contractNo);
+    }
+
 }

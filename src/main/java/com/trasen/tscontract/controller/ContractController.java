@@ -9,14 +9,12 @@ import com.trasen.tscontract.service.ContractService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * @author luoyun
@@ -63,6 +61,26 @@ public class ContractController {
         param.put("success",true);
         return param;
 
+    }
+
+    @RequestMapping(value="/getContractByHtNo",method = RequestMethod.POST)
+    public Map<String,Object> getContractByHtNo(@PathVariable String contractNo){
+        Map<String,Object> param=new HashMap<>();
+        try{
+            Optional<String> op=Optional.of(contractNo);
+            if(!op.isPresent()){
+                param.put("message","合同号为空");
+                param.put("success",false);
+            }
+            OaContractInfo oaContractInfo=contractService.getContractByHtNo(contractNo);
+            param.put("object",oaContractInfo);
+            param.put("success",true);
+        }catch (Exception e){
+            logger.error("数据查询失败"+e.getMessage(),e);
+            param.put("message","数据查询失败");
+            param.put("success",false);
+        }
+        return param;
     }
 
     @RequestMapping(value="/getOaContractListByOwner",method = RequestMethod.POST)

@@ -71,4 +71,10 @@ public class OaContractTest {
             }
         }
     }
+
+    @Test
+    public void getContractByHtNo(){
+        OaContractInfo oaContractInfo= contractService.getContractByHtNo("B16080");
+        System.out.println(oaContractInfo.getContractName()+"=========");
+    }
 }

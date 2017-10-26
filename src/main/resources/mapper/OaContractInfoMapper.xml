@@ -82,5 +82,40 @@
   <select id="getProductTypeDic" resultType="com.trasen.tscontract.model.OaDic">
       select id,name,code from JF_DICTIONARY t where parent_id=1 and delete_bit=0
   </select>
+
+    <select id="getContractByHtNo" parameterType="String" resultType="com.trasen.tscontract.model.OaContractInfo">
+        select info.ID,
+    info.contract_no as contractNo,
+    info.contract_type as contractType,
+    info.contract_name as contractName,
+    info.contract_price as contractPrice,
+    info.product_type as productType,
+    info.buy_price as buyPrice,
+    info.sign_date as signDate,
+    info.contract_owner as contractOwner,
+    info.buyer as buyer,
+    info.seller as seller,
+    info.buyer_signer as buyerSigner,
+    info.seller_signer as sellerSigner,
+    info.customer_id as customerId,
+    info.create_time as createTime,
+    info.time_limit as timeLimit,
+    info.state as state,
+    info.paymode as paymode,
+    info.remark as remark,
+    info.create_type as createType,
+    info.create_user_id as createUserId,
+    info.distribute_date as distributeDate,
+    info.maintain_limit as maintainLimit,
+    cu.CUSTOMER_NAME as customerName,
+    cu.customer_no as customerNo,
+    cu.hospital_grade as hospitalGrade,
+    cu.contact_address as contactAddress,
+    cu.CONTACT_PHONE as contactPhone
+    from OA_CONTRACT_INFO info
+    left join OA_CUSTOMER cu
+    on info.customer_id = cu.id
+    where info.CONTRACT_NO=#{contractNo}
+    </select>
   
 </mapper>

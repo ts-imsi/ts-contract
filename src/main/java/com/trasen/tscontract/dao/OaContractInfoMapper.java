@@ -13,4 +13,5 @@ public interface OaContractInfoMapper extends MyMapper<OaContractInfo> {
      List<ContractProduct> getProductByContract(String contractNo);
      List<OaProduct> getProductList();
      List<OaDic> getProductTypeDic();
+     OaContractInfo getContractByHtNo(String contractNo);
 }

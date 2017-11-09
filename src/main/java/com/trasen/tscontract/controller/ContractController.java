@@ -95,10 +95,6 @@ public class ContractController {
             }
             if (params.get("contractOwner") != null) {
                 oaContractInfo.setContractOwner(params.get("contractOwner"));
-            } else {
-                param.put("messges", "参数错误，合同所有者为空");
-                param.put("success", false);
-                return param;
             }
             if(params.get("selectName")!=null&&params.get("selectName")!=""){
                 oaContractInfo.setContractNo(params.get("selectName"));

@@ -35,7 +35,7 @@
     left join OA_CUSTOMER cu
     on info.customer_id = cu.id
     where 1 = 1
-    <if test="contractNo!=null"> and (info.CONTRACT_NO=#{contractNo,jdbcType=VARCHAR} or cu.CUSTOMER_NAME=#{customerName,jdbcType=VARCHAR} or info.contract_name=#{contractName,jdbcType=VARCHAR})</if>
+    <if test="contractNo!=null"> and (info.CONTRACT_NO like '%'||#{contractNo,jdbcType=VARCHAR}||'%'  or cu.CUSTOMER_NAME like  '%'||#{customerName,jdbcType=VARCHAR}||'%' or info.contract_name like  '%'||#{contractName,jdbcType=VARCHAR}||'%')</if>
     <if test="contractOwner!=null"> and info.CONTRACT_OWNER=#{contractOwner,jdbcType=VARCHAR}</if>
   </select>
 

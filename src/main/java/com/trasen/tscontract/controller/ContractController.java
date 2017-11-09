@@ -88,12 +88,22 @@ public class ContractController {
         Map<String,Object> param=new HashMap<String,Object>();
         OaContractInfo oaContractInfo=new OaContractInfo();
         try {
+            if(params.isEmpty()){
+                param.put("messges", "参数错误");
+                param.put("success", false);
+                return param;
+            }
             if (params.get("contractOwner") != null) {
                 oaContractInfo.setContractOwner(params.get("contractOwner"));
             } else {
                 param.put("messges", "参数错误，合同所有者为空");
                 param.put("success", false);
                 return param;
+            }
+            if(params.get("selectName")!=null&&params.get("selectName")!=""){
+                oaContractInfo.setContractNo(params.get("selectName"));
+                oaContractInfo.setContractName(params.get("selectName"));
+                oaContractInfo.setCustomerName(params.get("selectName"));
             }
             List<OaContractInfo> oaContractInfoList = contractService.getOaContractListByOwner(oaContractInfo);
             param.put("list", oaContractInfoList);

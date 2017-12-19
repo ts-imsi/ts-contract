@@ -23,7 +23,7 @@ import java.util.Optional;
  * @date 2017/9/21
  */
 @RestController
-@RequestMapping(value="/ts-contract/contract")
+@RequestMapping(value="/contract")
 public class ContractController {
     private final static Logger logger = LoggerFactory.getLogger(ContractController.class);
 

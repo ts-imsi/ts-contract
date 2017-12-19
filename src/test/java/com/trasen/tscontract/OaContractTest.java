@@ -38,7 +38,7 @@ public class OaContractTest {
         PageInfo<OaContractInfo> contractInfoPageInfo= contractService.getOaContractList(page,rows,oaContractInfo);
         if(contractInfoPageInfo!=null){
             List<OaContractInfo> contractInfoList=contractInfoPageInfo.getList();
-            System.out.println(contractInfoList.get(0).getContractNo()+"======"+contractInfoList.get(0).getContractOwner());
+            //System.out.println(contractInfoList.get(0).getContractNo()+"======"+contractInfoList.get(0).getContractOwner());
         }
 
     }
